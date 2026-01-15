@@ -1,0 +1,177 @@
+/* ===== PAGE ===== */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* ===== CARD ===== */
+.login-card {
+    width: 380px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+}
+
+/* ===== TITLES ===== */
+.login-main-title {
+    font-size: 40px;
+    color: rgba(37, 60, 95, 1);
+    margin-bottom: 20px;
+}
+
+.login-title {
+    margin: 0;
+    font-size: 30px;
+    color: rgba(102, 162, 253, 1);
+}
+
+.login-subtitle {
+    margin: 0;
+    font-size: 20px;
+    color: #6b7280;
+}
+
+/* ===== FORM ===== */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.login-input {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    outline: none;
+}
+
+/* ===== BUTTON ===== */
+.login-button {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background-color: rgba(102, 162, 253, 1);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+.login-footer {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.login-link {
+    color: rgba(102, 162, 253, 1);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ===== Success Login Modal ===== */
+
+.login-success-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 420px;
+
+    text-align: right;
+    direction: rtl;
+
+    box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+    outline: none;
+}
+
+
+/* כותרת */
+.success-title {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* טקסט */
+.success-text {
+    margin: 0 0 22px 0;
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* כפתור */
+.success-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.success-btn:hover {
+    background: #1e40af;
+    transform: translateY(-1px);
+}
+
+
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    font-size: 13px;
+    color: #2563eb;
+    font-weight: 500;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    text-decoration: underline;
+}
+
+
+.login-error {
+    margin-top: 6px;
+    color: #b91c1c;
+    font-size: 13px;
+    text-align: right;
+}
+
+.login-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

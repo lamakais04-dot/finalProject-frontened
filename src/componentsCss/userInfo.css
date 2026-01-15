@@ -1,0 +1,100 @@
+/* עמוד */
+.userinfo-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 40px;
+}
+
+/* כרטיס */
+.userinfo-card {
+    width: 420px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    padding: 30px;
+    text-align: center;
+}
+
+/* תמונת פרופיל */
+.userinfo-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    overflow: hidden;
+}
+
+.userinfo-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* שם */
+.userinfo-name {
+    margin: 10px 0;
+}
+
+/* כתובת */
+.userinfo-address {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+/* פרטי קשר */
+.userinfo-details {
+    text-align: right;
+    direction: rtl;
+}
+
+.userinfo-details p {
+    margin: 6px 0;
+}
+
+/* כפתורי פעולה */
+.userinfo-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.userinfo-btn {
+    padding: 10px 18px;
+    border-radius: 14px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.userinfo-btn.phone {
+    background: #3b82f6;
+}
+
+.userinfo-btn.phone:hover {
+    background: #2563eb;
+}
+
+.userinfo-btn.mail {
+    background: #10b981;
+}
+
+.userinfo-btn.mail:hover {
+    background: #059669;
+}
+
+.loading-text {
+    color: rgba(102, 162, 253, 0.32);
+    text-shadow: 3px 5px 5px rgba(0, 0, 0, 0.1);
+    font-size: 50px;
+    margin-top: 100px;
+}

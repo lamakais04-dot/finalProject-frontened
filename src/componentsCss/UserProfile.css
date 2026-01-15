@@ -1,0 +1,115 @@
+/* ===== PAGE ===== */
+.profile-page {
+    min-height: 100vh;
+    padding-top: 150px;
+    background:transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    direction: rtl;
+}
+
+/* ===== CARD ===== */
+.profile-card {
+    width: 440px;
+    max-width: 94vw;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 36px 32px 32px;
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.18),
+        0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* ===== IMAGE ===== */
+.profile-image-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #f3f4f6;
+    border: 5px solid white;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* ===== NAME ===== */
+.profile-name {
+    margin: 6px 0 4px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #1f2937;
+}
+
+/* ===== ROLE ===== */
+.profile-role {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(102,162,253,0.15);
+    color: rgba(37,99,235,1);
+    margin-bottom: 28px;
+}
+
+.profile-role.admin {
+    background: rgba(239,68,68,0.15);
+    color: #b91c1c;
+}
+
+/* ===== DETAILS ===== */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: right;
+}
+
+/* ===== ROW ===== */
+.profile-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+
+    background: linear-gradient(
+        to left,
+        #f9fafb,
+        #ffffff
+    );
+    padding: 14px 16px;
+    border-radius: 14px;
+
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+/* ===== LABEL ===== */
+.profile-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+/* ===== VALUE ===== */
+.profile-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    text-align: left;
+    direction: ltr;
+}
+
+/* ===== LOADING ===== */
+.profile-loading {
+    padding-top: 200px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(102,162,253,0.7);
+}
