@@ -1,4 +1,3 @@
-/* ===== CARD ===== */
 .create-listing-container {
     width: 500px;
     max-width: 94vw;
@@ -9,7 +8,6 @@
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
 }
 
-/* ===== TITLE ===== */
 .create-listing-title {
     text-align: center;
     margin-bottom: 22px;
@@ -18,21 +16,18 @@
     color: #3b82f6;
 }
 
-/* ===== FORM ===== */
 .create-listing-form {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-/* ===== FIELD ===== */
 .form-field {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-/* ===== INPUTS ===== */
 .form-input,
 .form-textarea,
 .form-select {
@@ -51,13 +46,11 @@
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
 }
 
-/* textarea */
 .form-textarea {
     min-height: 110px;
     resize: vertical;
 }
 
-/* ===== FILE INPUT FIX (RTL) ===== */
 .file-upload-wrapper {
     display: flex;
     align-items: center;
@@ -79,7 +72,6 @@
     cursor: pointer;
 }
 
-/* ===== BUTTON ===== */
 .submit-button {
     margin-top: 10px;
     padding: 15px;
@@ -143,8 +135,10 @@
 }
 
 .loading-text {
-    text-align: center;
-    color: #555;
+    color: rgba(102, 162, 253, 0.32);
+    text-shadow: 3px 5px 5px rgba(0, 0, 0, 0.1);
+    font-size: 50px;
+    margin-top: 100px;
 }
 
 .signup-error {

@@ -37,7 +37,6 @@ export default function UserInfo() {
             {loading? <h1 className="loading-text" >...טוען נתונים</h1>:
             (<div className="userinfo-card">
 
-                {/* תמונת פרופיל */}
                 <div className="userinfo-avatar">
                     {userInfo.imageurl ? (
                         <img src={userInfo.imageurl} alt="profile" />
@@ -46,19 +45,16 @@ export default function UserInfo() {
                     )}
                 </div>
 
-                {/* שם */}
                 <h2 className="userinfo-name">
                     {userInfo.firstname} {userInfo.lastname}
                 </h2>
 
-                {/* כתובת */}
                 <p className="userinfo-address">
                     📍 {userInfo.address}
                 </p>
 
                 <hr />
 
-                {/* פרטים */}
                 <div className="userinfo-details">
                     <p><strong>📧 אימייל:</strong> {userInfo.email}</p>
                     <p><strong>📞 טלפון:</strong> {userInfo.phonenumber}</p>
@@ -66,7 +62,6 @@ export default function UserInfo() {
                     <p><strong>🎂 תאריך לידה:</strong> {userInfo.birthdate}</p>
                 </div>
 
-                {/* פעולות */}
                 <div className="userinfo-actions">
                     <a
                         href={`tel:${userInfo.phonenumber}`}

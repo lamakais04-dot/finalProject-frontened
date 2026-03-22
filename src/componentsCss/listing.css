@@ -55,7 +55,6 @@
     margin-top: 100px;
 }
 
-/* ===== CATEGORY MODAL ===== */
 
 .category-modal-wrapper {
     padding: 24px;
@@ -65,7 +64,6 @@
     gap: 16px;
 }
 
-/* כותרת */
 .category-modal-title {
     margin: 0;
     font-size: 22px;
@@ -74,7 +72,6 @@
     text-align: center;
 }
 
-/* חיפוש */
 .category-search-input {
     width: 100%;
     padding: 12px 14px;
@@ -89,7 +86,6 @@
     box-shadow: 0 0 0 3px rgba(102, 162, 253, 0.2);
 }
 
-/* רשימת קטגוריות */
 .category-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -99,7 +95,6 @@
     padding-right: 4px;
 }
 
-/* כפתורי קטגוריה */
 .category-list-button {
     padding: 10px 14px;
     border-radius: 999px;
@@ -116,7 +111,6 @@
     color: #2563eb;
 }
 
-/* כפתור "הכל" */
 .category-list-button.all {
     background-color: #2563eb;
     color: white;
@@ -127,7 +121,6 @@
     background-color: #1e40af;
 }
 
-/* scrollbar עדין */
 .category-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -197,12 +190,10 @@
     font-size: 16px;
 }
 
-/* ===== SHARED DELETE-STYLE BUTTON ===== */
-/* ===== SHARED SITE BUTTON STYLE ===== */
+
 .modal-action-btn {
     padding: 14px 30px;
     border-radius: 999px;
-    /* הכי עגול */
     border: none;
 
     font-size: 16px;
@@ -216,12 +207,10 @@
     transition: all 0.25s ease;
 }
 
-/* ===== SAME HOVER FOR BOTH ===== */
 .modal-action-btn:hover {
     transform: translateY(-2px);
 }
 
-/* ===== CANCEL – כמו כפתור כחול באתר (רך) ===== */
 .cancel-button {
     background: rgba(102, 162, 253, 0.85);
     color: white;
@@ -233,7 +222,6 @@
     box-shadow: 0 12px 28px rgba(102, 162, 253, 0.45);
 }
 
-/* ===== DELETE – אותו כפתור, אדום ===== */
 .delete-button {
     background: rgba(239, 68, 68, 0.9);
     color: white;
