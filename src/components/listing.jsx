@@ -39,7 +39,7 @@ export default function Listing() {
     const [isLoading, setIsLoading] = useState(false)
     const [hasError, setHasError] = useState(false)
     const [page, setPage] = useState(1)
-    const [pageNumbers,setPageNumbers] = useState(10)
+    const [pageNumbers, setPageNumbers] = useState(10)
     const [isSearched, setIsSearched] = useState(false)
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function Listing() {
                 headers: {
                     apiKey: "123456789apikeysecure"
                 }
-            )
+            })
             setCategories(res.data)
         } catch (err) {
             console.log("error:", err)
@@ -89,7 +89,8 @@ export default function Listing() {
                             apiKey: "123456789apikeysecure"
                         }
                     })
-                setLestings(response.data)
+                setListings(response.data.result)
+                setPageNumbers(response.data.page_numbers)
             } else {
                 const response = await axios.get(`/api/listing/withoutMine`,
                     {
@@ -104,7 +105,8 @@ export default function Listing() {
                             apiKey: "123456789apikeysecure"
                         }
                     })
-                setLestings(response.data)
+                setListings(response.data.result)
+                setPageNumbers(response.data.page_numbers)
             }
         }
         catch (err) {
@@ -176,7 +178,7 @@ export default function Listing() {
                     <h3 className="loading-text">
                         🔍 לא נמצאו פרסומים שמתאימים לחיפוש {searchTerm}
                     </h3>
-                    <Link onClick={()=>{setIsSearched(false)}} style={{
+                    <Link onClick={() => { setIsSearched(false) }} style={{
                         color: "rgba(102, 162, 253, 1)",
                         fontWeight: "600",
                         fontSize: "20px",
@@ -210,7 +212,7 @@ export default function Listing() {
             {!isLoading && !hasError && filteredListings?.length > 0 && (
                 <>
 
-                    {isSearched && (<Link onClick={()=>{setIsSearched(false)}} style={{
+                    {isSearched && (<Link onClick={() => { setIsSearched(false) }} style={{
                         color: "rgba(102, 162, 253, 1)",
                         fontWeight: "600",
                         fontSize: "20px",
@@ -260,21 +262,21 @@ export default function Listing() {
                             </button>
 
                             {categories?.filter(c => (c.name || "").includes(categorySearch)).map(c => (
-                                    <button
-                                        key={c.id}
-                                        onClick={() => {
-                                            setSelectedCategories(prev =>
-                                                prev.includes(c.id)
-                                                    ? prev
-                                                    : [...prev, c.id]
-                                            )
-                                            setOpenCategories(false)
-                                        }}
-                                        className="category-list-button"
-                                    >
-                                        {c.name}
-                                    </button>
-                                ))}
+                                <button
+                                    key={c.id}
+                                    onClick={() => {
+                                        setSelectedCategories(prev =>
+                                            prev.includes(c.id)
+                                                ? prev
+                                                : [...prev, c.id]
+                                        )
+                                        setOpenCategories(false)
+                                    }}
+                                    className="category-list-button"
+                                >
+                                    {c.name}
+                                </button>
+                            ))}
                         </div>
 
                     </div>
