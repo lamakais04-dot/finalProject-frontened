@@ -201,17 +201,27 @@ export default function CreateListing() {
                     />
 
                     <input
-                        className="form-input"
-                        value={availability}
-                        onChange={(e) => setAvailability(e.target.value)}
-                        placeholder="זמינות"
-                    />
+                        id="imageUpload"
+                        type="file"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        onChange={async (e) => {
+                            const file = e.target.files[0]
+                            if (!file) return
 
-                    <textarea
-                        className="form-textarea"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        placeholder="תיאור הפרסום"
+                            setImageFile(file)
+                            setImagePreview(URL.createObjectURL(file))
+
+                            const fd = new FormData()
+                            fd.append("image_file", file)
+
+                            const res = await axios.post(
+                                "/api/listing/uploadImage",
+                                fd,
+                                { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
+                            )
+                            setImageUrl(res.data)
+                        }}
                     />
 
                     <div className="form-field">

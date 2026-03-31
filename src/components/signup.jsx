@@ -115,7 +115,7 @@ export default function Signup() {
         };
 
         await axios.post(
-            "http://localhost:8000/api/auth/signup",
+            "/api/auth/signup",
             payload,
             {
                 withCredentials: true,
@@ -193,7 +193,7 @@ export default function Signup() {
                                 fd.append("image_file", file)
 
                                 const res = await axios.post(
-                                    "http://localhost:8000/api/auth/uploadImage",
+                                    "/api/auth/uploadImage",
                                     fd,
                                     {
                                         withCredentials: true,

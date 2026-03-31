@@ -58,11 +58,10 @@ export default function Listing() {
 
     const getCategories = async () => {
         try {
-            const res = await axios.get(
-                "http://localhost:8000/api/category",
-                {
-                    withCredentials: true,
-                    headers: { apiKey: "123456789apikeysecure" }
+            const res = await axios.get("/api/category", {
+                withCredentials: true,
+                headers: {
+                    apiKey: "123456789apikeysecure"
                 }
             )
             setCategories(res.data)
@@ -76,28 +75,40 @@ export default function Listing() {
         setHasError(false)
 
         try {
-            const url = user?.id
-                ? "http://localhost:8000/api/listing/withoutMine"
-                : "http://localhost:8000/api/listing/user"
-
-            const res = await axios.get(
-                url,
-                {
-                    params: {
-                        page,
-                        categories: selectedCategories
-                    },
-                    paramsSerializer: params =>
-                        qs.stringify(params, { arrayFormat: "repeat" }),
-                    withCredentials: true,
-                    headers: { apiKey: "123456789apikeysecure" }
-                }
-            )
-
-            setListings(res.data.result)
-            setPageNumbers(res.data.page_numbers)
-        } catch (err) {
-            console.log("error:", err)
+            if (!user?.id) {
+                const response = await axios.get(`/api/listing/user`,
+                    {
+                        params: {
+                            page: page,
+                            categories: selectedCategories
+                        },
+                        paramsSerializer: params =>
+                            qs.stringify(params, { arrayFormat: "repeat" }),
+                        withCredentials: true,
+                        headers: {
+                            apiKey: "123456789apikeysecure"
+                        }
+                    })
+                setLestings(response.data)
+            } else {
+                const response = await axios.get(`/api/listing/withoutMine`,
+                    {
+                        params: {
+                            page: page,
+                            categories: selectedCategories
+                        },
+                        paramsSerializer: params =>
+                            qs.stringify(params, { arrayFormat: "repeat" }),
+                        withCredentials: true,
+                        headers: {
+                            apiKey: "123456789apikeysecure"
+                        }
+                    })
+                setLestings(response.data)
+            }
+        }
+        catch (err) {
+            console.log("error: ", err)
             setHasError(true)
         } finally {
             setIsLoading(false)
