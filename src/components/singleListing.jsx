@@ -26,7 +26,7 @@ export default function SingleListing() {
 
     const getUserInfo = async () => {
         const response = await axios.get(
-            `http://localhost:8000/api/user/${singleListing.userid}`,
+            `/api/user/${singleListing.userid}`,
             {
                 withCredentials: true,
                 headers: { apiKey: "123456789apikeysecure" }
@@ -37,7 +37,7 @@ export default function SingleListing() {
 
     const getSingleListing = async () => {
         const response = await axios.get(
-            `http://localhost:8000/api/listing/${listingId}`,
+            `/api/listing/${listingId}`,
             {
                 withCredentials: true,
                 headers: { apiKey: "123456789apikeysecure" }
@@ -53,7 +53,7 @@ export default function SingleListing() {
 
     const getCategoryName = async () => {
         const response = await axios.get(
-            `http://localhost:8000/api/category/${singleListing.categoryid}`,
+            `/api/category/${singleListing.categoryid}`,
             {
                 withCredentials: true,
                 headers: { apiKey: "123456789apikeysecure" }

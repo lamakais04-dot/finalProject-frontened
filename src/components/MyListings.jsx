@@ -35,7 +35,7 @@ export default function MyListings() {
 
     const getMyCategories = async () => {
         const res = await axios.get(
-            "http://localhost:8000/api/category/my/categories",
+            "/api/category/my/categories",
             { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
         )
         setCategories(res.data)
@@ -43,7 +43,7 @@ export default function MyListings() {
 
     const getMyListings = async (categoryId = null) => {
         const res = await axios.get(
-            "http://localhost:8000/api/listing/get/my",
+            "/api/listing/get/my",
             {
                 params: categoryId ? { categoryId } : {},
                 withCredentials: true,
@@ -70,7 +70,7 @@ export default function MyListings() {
 
     const handleConfirmDelete = async () => {
         await axios.delete(
-            `http://localhost:8000/api/listing/${listingToDelete.id}`,
+            `/api/listing/${listingToDelete.id}`,
             {
                 withCredentials:true,
                 headers: {
