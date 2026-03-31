@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import ListingItem from './ListingItem'
+import ListingItem from './listingItem'
 import { Box, Modal, Pagination } from '@mui/material'
 import qs from "qs"
 import '../componentsCss/listing.css'

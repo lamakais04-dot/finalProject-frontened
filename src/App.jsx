@@ -13,7 +13,7 @@ import MyProfile from './components/myProfile'
 import ProtectedRoute from './components/protectedRouter'
 import UserInfo from './components/UserInfo'
 import MyListings from './components/MyListings'
-import CreateListing from './components/CreateListing'
+import CreateListing from './components/createListing'
 import ProtectedRouteAdmin from './components/protectedRouteAdmin'
 import AdminCategories from './components/adminCategories'
 

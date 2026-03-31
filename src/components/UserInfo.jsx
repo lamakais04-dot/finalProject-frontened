@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import '../componentsCss/UserInfo.css'
+import '../componentsCss/userInfo.css'
 
 export default function UserInfo() {
     const { userId } = useParams()
