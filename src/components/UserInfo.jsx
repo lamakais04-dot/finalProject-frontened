@@ -15,7 +15,7 @@ export default function UserInfo() {
     const getUserInfo = async () => {
         try {
             const res = await axios.get(
-                `http://localhost:8000/api/user/${userId}`,
+                `/api/user/${userId}`,
                 {
                     withCredentials: true,
                     headers: { apiKey: "123456789apikeysecure" }

@@ -42,7 +42,7 @@ export default function Listing() {
 
     const getCategories = async () => {
         try {
-            const res = await axios.get("http://localhost:8000/api/category", {
+            const res = await axios.get("/api/category", {
                 withCredentials: true,
                 headers: {
                     apiKey: "123456789apikeysecure"
@@ -63,7 +63,7 @@ export default function Listing() {
 
         try {
             if (!user?.id) {
-                const response = await axios.get(`http://localhost:8000/api/listing/user`,
+                const response = await axios.get(`/api/listing/user`,
                     {
                         params: {
                             page: page,
@@ -78,7 +78,7 @@ export default function Listing() {
                     })
                 setLestings(response.data)
             } else {
-                const response = await axios.get(`http://localhost:8000/api/listing/withoutMine`,
+                const response = await axios.get(`/api/listing/withoutMine`,
                     {
                         params: {
                             page: page,

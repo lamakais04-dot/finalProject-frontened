@@ -19,7 +19,7 @@ export default function Navigation() {
 
     const logout = async () => {
         await axios.post(
-            "http://localhost:8000/api/auth/logout",
+            "/api/auth/logout",
             {},
             {
                 withCredentials: true,
