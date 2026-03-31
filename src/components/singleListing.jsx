@@ -65,12 +65,11 @@ export default function SingleListing() {
     return (
         <div className="single-card-wrapper">
 
-            {/* 🔙 כפתור חזרה */}
             <div
                 className="single-back-btn"
                 onClick={() => navigate(-1)}
             >
-                 חזרה לכל הפרסומים
+                 חזרה לכל הפרסומים שלי
             </div>
 
             <div className="single-card">
@@ -116,7 +115,6 @@ export default function SingleListing() {
 
                     </div>
 
-                    {/* ✏ כפתור עריכה – רק לבעל הפרסום */}
                     {userLoginId === singleListing.userid && (
                         <button
                             className="edit-listing-btn"

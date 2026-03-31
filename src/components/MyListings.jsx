@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import CreateListing from './CreateListing';
-import ListingItem from './ListingItem'
+import CreateListing from './createListing';
+import ListingItem from './listingItem'
 import { useAuth } from '../context/AuthContext'
 import { Box, Modal, Pagination } from '@mui/material';
 import '../componentsCss/listing.css'

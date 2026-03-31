@@ -1,0 +1,110 @@
+
+.admin-page {
+    min-height: 100vh;
+    padding: 140px 40px 40px;
+    background: linear-gradient(135deg, #fffaf6, #ffffffaf);
+    direction: rtl;
+}
+
+.admin-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #120c6c;
+    margin-bottom: 30px;
+}
+
+
+
+.admin-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+    max-width: 900px;
+}
+
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table thead {
+    background: #fffaf6;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 14px 16px;
+    text-align: right;
+    font-size: 15px;
+}
+
+.admin-table th {
+    font-weight: 800;
+    color: #0e2892;
+    border-bottom: 2px solid #fffaf6;
+}
+
+.admin-table tr:not(:last-child) td {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+
+.admin-btn {
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+.admin-btn.edit {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.admin-btn.edit:hover {
+    background: #bae6fd;
+}
+
+.admin-btn.delete {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.admin-btn.delete:hover {
+    background: #fecaca;
+}
+
+
+.admin-loading {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.admin-empty {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.admin-input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  width: 100%;
+}
+
+.admin-btn.save {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-btn.cancel {
+  background: #f3f4f6;
+  color: #374151;
+}

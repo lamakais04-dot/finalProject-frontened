@@ -3,9 +3,10 @@ import axios from "axios";
 
 const AuthContext = createContext()
 
-export function AuthProvider({children}) {
+export function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [isAdmin, setIsAdmin] = useState(false)
 
 
     const fetchUser = async () => {
@@ -17,21 +18,23 @@ export function AuthProvider({children}) {
                 }
             })
             setUser(res.data)
-        } catch{
+            setIsAdmin(res.data?.isadmin === true)
+        } catch {
             setUser(null)
-        }finally{
+            setIsAdmin(false)
+        } finally {
             setLoading(false)
         }
-        
-}
 
-useEffect(()=>{fetchUser()},[])
+    }
 
-return(
-    <AuthContext.Provider value={{user,setUser,fetchUser,loading}}>
-        {children}
-    </AuthContext.Provider>
-)
+    useEffect(() => { fetchUser() }, [])
+
+    return (
+        <AuthContext.Provider value={{ user, setUser, fetchUser, loading, isAdmin }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
 export const useAuth = () => useContext(AuthContext)

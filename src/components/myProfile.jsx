@@ -13,7 +13,6 @@ export default function UserProfile() {
     <div className="profile-page">
       <div className="profile-card">
 
-        {/* תמונה */}
         <div
           style={{
             width: "120px",
@@ -37,17 +36,14 @@ export default function UserProfile() {
           }
         </div>
 
-        {/* שם */}
         <h2 className="profile-name">
           {user.firstname} {user.lastname}
         </h2>
 
-        {/* תפקיד */}
         <span className={`profile-role ${user.isadmin ? "admin" : ""}`}>
           {user.isadmin ? "אדמין" : "משתמש"}
         </span>
 
-        {/* פרטים */}
         <div className="profile-details">
           <ProfileRow label="אימייל" value={user.email} />
           <ProfileRow label="טלפון" value={user.phonenumber} />

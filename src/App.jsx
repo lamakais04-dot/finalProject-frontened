@@ -13,7 +13,9 @@ import MyProfile from './components/myProfile'
 import ProtectedRoute from './components/protectedRouter'
 import UserInfo from './components/UserInfo'
 import MyListings from './components/MyListings'
-import CreateListing from './components/CreateListing'
+import CreateListing from './components/createListing'
+import ProtectedRouteAdmin from './components/protectedRouteAdmin'
+import AdminCategories from './components/adminCategories'
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route path='/myListing' Component={MyListings} />
         <Route path='/UserInfo/:userId' Component={UserInfo} />
         <Route path='/createListing' element={<ProtectedRoute><CreateListing /></ProtectedRoute>} />
+        <Route path='/admin/categories' element={<ProtectedRouteAdmin><AdminCategories /></ProtectedRouteAdmin>} />
         <Route path='/editListing/:id' element={<ProtectedRoute><CreateListing /></ProtectedRoute>} />
         <Route path='/singleListing/:listingId' Component={singleListing} />
         <Route path='/me' element={

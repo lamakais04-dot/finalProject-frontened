@@ -13,11 +13,9 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassWord] = useState("");
 
-    // UX states
     const [showPassword, setShowPassword] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
-    // ולידציות – זהות להרשמה
     const isValidEmail = (value) =>
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
