@@ -1,4 +1,3 @@
-/* עמוד */
 .userinfo-page {
     min-height: 100vh;
     display: flex;
@@ -8,7 +7,6 @@
     padding: 40px;
 }
 
-/* כרטיס */
 .userinfo-card {
     width: 420px;
     background: #ffffff;
@@ -18,7 +16,6 @@
     text-align: center;
 }
 
-/* תמונת פרופיל */
 .userinfo-avatar {
     width: 120px;
     height: 120px;
@@ -38,18 +35,15 @@
     object-fit: cover;
 }
 
-/* שם */
 .userinfo-name {
     margin: 10px 0;
 }
 
-/* כתובת */
 .userinfo-address {
     color: #6b7280;
     margin-bottom: 20px;
 }
 
-/* פרטי קשר */
 .userinfo-details {
     text-align: right;
     direction: rtl;
@@ -59,7 +53,6 @@
     margin: 6px 0;
 }
 
-/* כפתורי פעולה */
 .userinfo-actions {
     display: flex;
     gap: 12px;

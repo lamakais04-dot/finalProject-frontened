@@ -1,10 +1,8 @@
-/* קישור שעוטף את הכרטיס */
 .listing-card-link {
     text-decoration: none;
     color: inherit;
 }
 
-/* כרטיס */
 .listing-card {
     width: 360px;
     height: auto;
@@ -21,13 +19,11 @@
         box-shadow 0.25s ease;
 }
 
-/* hover */
 .listing-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 30px 60px rgba(0,0,0,0.22);
 }
 
-/* תמונה */
 .listing-image-wrapper {
     position: relative;
     width: 100%;
@@ -46,7 +42,6 @@
     transform: scale(1.05);
 }
 
-/* overlay */
 .image-overlay {
     position: absolute;
     inset: 0;
@@ -71,7 +66,6 @@
     color: #66a2fd;
 }
 
-/* תגיות */
 .listing-badges {
     position: absolute;
     top: 12px;
@@ -97,7 +91,6 @@
     font-size: 14px;
 }
 
-/* תוכן */
 .listing-content {
     padding: 16px;
 }
@@ -120,7 +113,6 @@
     margin: 0;
 }
 
-/* footer */
 .listing-footer {
     margin-top: auto;
     padding: 16px;
@@ -145,14 +137,12 @@
     cursor: pointer;
 }
 
-/* אזור פעולות לבעל הפרסום */
 .listing-actions {
     display: flex;
     gap: 10px;
     padding: 0 16px 16px;
 }
 
-/* כפתור כללי */
 .listing-actions button {
     flex: 1;
     padding: 8px 14px;
@@ -164,7 +154,6 @@
     transition: all 0.2s ease;
 }
 
-/* עריכה – כחול עדין */
 .edit-btn {
     background: #e8f0ff;
     color: #2563eb;
@@ -174,7 +163,6 @@
     background: #dbe7ff;
 }
 
-/* מחיקה – אדום עדין */
 .delete-btn {
     background: #fdeaea;
     color: #dc2626;

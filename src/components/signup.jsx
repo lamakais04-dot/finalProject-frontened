@@ -225,7 +225,6 @@ export default function Signup() {
                             </div>
                         )}
 
-                        {/* כפתור מותאם */}
                         <label
                             htmlFor="signupImageUpload"
                             className="file-button"

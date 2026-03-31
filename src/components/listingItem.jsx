@@ -20,7 +20,6 @@ export default function ListingItem(props) {
         to={`/singleListing/${listing.id}`}
         className="listing-card-link"
       >
-        {/* תמונה */}
         <div className="listing-image-wrapper">
           <img
             src={listing.imageFile}
@@ -28,12 +27,10 @@ export default function ListingItem(props) {
             className="listing-image"
           />
 
-          {/* overlay לחיץ */}
           <div className="image-overlay">
             <span className="overlay-text">לצפייה בפרטים</span>
           </div>
 
-          {/* תגיות */}
           <div className="listing-badges">
             {listing.user?.address && (
               <span className="listing-badge">
@@ -52,7 +49,6 @@ export default function ListingItem(props) {
           </div>
         </div>
 
-        {/* תוכן */}
         <div className="listing-content">
           <h3 className="listing-title">
             {listing.title}
@@ -63,7 +59,6 @@ export default function ListingItem(props) {
           </p>
         </div>
 
-        {/* תחתית */}
         <div className="listing-footer">
           <div className="listing-price">
             ₪ {listing.price}

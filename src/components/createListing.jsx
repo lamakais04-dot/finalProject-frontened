@@ -60,7 +60,7 @@ export default function CreateListing() {
         setImageFile(null)
         setImagePreview("")
         setImageUrl("")
-        document.getElementById("imageUpload").value = "" // איפוס input
+        document.getElementById("imageUpload").value = "" 
     }
 
     useEffect(() => {
@@ -74,10 +74,10 @@ export default function CreateListing() {
                     { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
                 )
                 setListing(res.data)
+                setIsLoading(false)
+
             } catch (err) {
                 console.log("error:", err)
-            } finally {
-                setIsLoading(false)
             }
         }
 
@@ -157,6 +157,8 @@ export default function CreateListing() {
             }
         } catch (err) {
             setErrorMsg("אירעה שגיאה בעת יצירת הפרסום, נסי שוב")
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -165,167 +167,166 @@ export default function CreateListing() {
     }
 
     return (
-        <div className="create-listing-container">
+        <>
 
-            {isLoading && <h1 className="loading-text">...טוען</h1>}
+            {isLoading && (<h1 className="loading-text">...טוען</h1>)}
 
-            {isEdit &&
-                <div
-                    className="single-back-btn"
-                    onClick={() => navigate(-1)}
-                >
-                    חזרה לכל הפרסומים
-                </div>}
-            <h1 className="create-listing-title">
-                {isEdit ? "עריכת פרסום" : "יצירת פרסום"}
-            </h1>
+            <div className="create-listing-container">
+                {isEdit &&
+                    <div
+                        className="single-back-btn"
+                        onClick={() => navigate(-1)}
+                    >
+                        חזרה לכל הפרסומים שלי
+                    </div>}
+                <h1 className="create-listing-title">
+                    {isEdit ? "עריכת פרסום" : "יצירת פרסום"}
+                </h1>
 
-            <form className="create-listing-form" onSubmit={handleSubmit} noValidate>
-
-                <input
-                    className="form-input"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="כותרת הפרסום"
-                />
-
-                <input
-                    className="form-input"
-                    type="number"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    placeholder="מחיר"
-                />
-
-                <input
-                    className="form-input"
-                    value={availability}
-                    onChange={(e) => setAvailability(e.target.value)}
-                    placeholder="זמינות"
-                />
-
-                <textarea
-                    className="form-textarea"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="תיאור הפרסום"
-                />
-
-                <div className="form-field">
-                    <label className="signup-label">העלאת תמונה</label>
+                <form className="create-listing-form" onSubmit={handleSubmit} noValidate>
 
                     <input
-                        id="imageUpload"
-                        type="file"
-                        accept="image/*"
-                        style={{ display: "none" }}
-                        onChange={async (e) => {
-                            const file = e.target.files[0]
-                            if (!file) return
-
-                            setImageFile(file)
-                            setImagePreview(URL.createObjectURL(file))
-
-                            const fd = new FormData()
-                            fd.append("image_file", file)
-
-                            const res = await axios.post(
-                                "/api/listing/uploadImage",
-                                fd,
-                                { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
-                            )
-                            setImageUrl(res.data)
-                        }}
+                        className="form-input"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="כותרת הפרסום"
                     />
 
-                    {/* ===== PREVIEW ===== */}
-                    {imagePreview && (
-                        <div className="image-preview-wrapper">
-                            <img
-                                src={imagePreview}
-                                alt="preview"
-                                className="listing-image-preview"
-                            />
+                    <input
+                        className="form-input"
+                        type="number"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        placeholder="מחיר"
+                    />
+
+                    <input
+                        className="form-input"
+                        value={availability}
+                        onChange={(e) => setAvailability(e.target.value)}
+                        placeholder="זמינות"
+                    />
+
+                    <textarea
+                        className="form-textarea"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="תיאור הפרסום"
+                    />
+
+                    <div className="form-field">
+                        <label className="signup-label">העלאת תמונה</label>
+
+                        <input
+                            id="imageUpload"
+                            type="file"
+                            accept="image/*"
+                            style={{ display: "none" }}
+                            onChange={async (e) => {
+                                const file = e.target.files[0]
+                                if (!file) return
+
+                                setImageFile(file)
+                                setImagePreview(URL.createObjectURL(file))
+
+                                const fd = new FormData()
+                                fd.append("image_file", file)
+
+                                const res = await axios.post(
+                                    "http://localhost:8000/api/listing/uploadImage",
+                                    fd,
+                                    { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
+                                )
+                                setImageUrl(res.data)
+                            }}
+                        />
+
+                        {imagePreview && (
+                            <div className="image-preview-wrapper">
+                                <img
+                                    src={imagePreview}
+                                    alt="preview"
+                                    className="listing-image-preview"
+                                />
+                                <button
+                                    type="button"
+                                    className="remove-image-btn"
+                                    onClick={handleRemoveImage}
+                                >
+                                    ✕ הסר תמונה
+                                </button>
+                            </div>
+                        )}
+
+                        <div className="file-upload-wrapper">
                             <button
                                 type="button"
-                                className="remove-image-btn"
-                                onClick={handleRemoveImage}
+                                className="file-button"
+                                onClick={() => document.getElementById("imageUpload").click()}
                             >
-                                ✕ הסר תמונה
+                                {imagePreview ? "החלף תמונה" : "בחר תמונה"}
                             </button>
+
+                            <span className="file-name">
+                                {imageFile ? imageFile.name : "לא נבחר קובץ"}
+                            </span>
                         </div>
-                    )}
-
-                    {/* ===== UPLOAD BUTTON ===== */}
-                    <div className="file-upload-wrapper">
-                        <button
-                            type="button"
-                            className="file-button"
-                            onClick={() => document.getElementById("imageUpload").click()}
-                        >
-                            {imagePreview ? "החלף תמונה" : "בחר תמונה"}
-                        </button>
-
-                        <span className="file-name">
-                            {imageFile ? imageFile.name : "לא נבחר קובץ"}
-                        </span>
                     </div>
-                </div>
 
 
-                <select
-                    className="form-select"
-                    value={categoryid}
-                    onChange={(e) => setCategoryid(e.target.value)}
-                >
-                    <option value="">בחירת קטגוריה</option>
-                    {categories.map(c => (
-                        <option key={c.id} value={c.id}>{c.name}</option>
-                    ))}
-                </select>
-
-                <select
-                    className="form-select"
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                >
-                    <option value="שירות">שירות</option>
-                    <option value="ציוד">ציוד</option>
-                </select>
-
-                {errorMsg && (
-                    <p className="signup-error">{errorMsg}</p>
-                )}
-                <div className='button-contains'>
-                    <button
-                        className="submit-button"
-                        type="submit"
-                        disabled={!isFormValid}
+                    <select
+                        className="form-select"
+                        value={categoryid}
+                        onChange={(e) => setCategoryid(e.target.value)}
                     >
-                        {isEdit ? "שמירת שינויים" : "יצירת פרסום"}
-                    </button>
-                    {isEdit && <button
-                        className="cancel-button"
-                        type="submit"
-                        disabled={!isFormValid}
-                    >
-                        ביטול שינויים
-                    </button>}
-                </div>
-            </form>
+                        <option value="">בחירת קטגוריה</option>
+                        {categories.map(c => (
+                            <option key={c.id} value={c.id}>{c.name}</option>
+                        ))}
+                    </select>
 
-            <Modal open={onCreateSuccess} onClose={handleSuccesClose}>
-                <Box sx={modalStyle}>
-                    <h2>הפרסום נוצר בהצלחה 🎉</h2>
-                    <button
-                        className="signup-success-btn"
-                        onClick={handleSuccesClose}
+                    <select
+                        className="form-select"
+                        value={type}
+                        onChange={(e) => setType(e.target.value)}
                     >
-                        סגירה
-                    </button>
-                </Box>
-            </Modal>
+                        <option value="שירות">שירות</option>
+                        <option value="ציוד">ציוד</option>
+                    </select>
 
-        </div>
+                    {errorMsg && (
+                        <p className="signup-error">{errorMsg}</p>
+                    )}
+                    <div className='button-contains'>
+                        <button
+                            className="submit-button"
+                            type="submit"
+                            disabled={!isFormValid}
+                        >
+                            {isEdit ? "שמירת שינויים" : "יצירת פרסום"}
+                        </button>
+                        {isEdit && <button
+                            className="cancel-button"
+                            type="submit"
+                            disabled={!isFormValid}
+                        >
+                            ביטול שינויים
+                        </button>}
+                    </div>
+                </form>
+
+                <Modal open={onCreateSuccess} onClose={handleSuccesClose}>
+                    <Box sx={modalStyle}>
+                        <h2>הפרסום נוצר בהצלחה 🎉</h2>
+                        <button
+                            className="signup-success-btn"
+                            onClick={handleSuccesClose}
+                        >
+                            סגירה
+                        </button>
+                    </Box>
+                </Modal>
+
+            </div></>
     )
 }
