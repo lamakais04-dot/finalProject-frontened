@@ -70,7 +70,7 @@ export default function CreateListing() {
             setIsLoading(true)
             try {
                 const res = await axios.get(
-                    `http://localhost:8000/api/listing/${id}`,
+                    `/api/listing/${id}`,
                     { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
                 )
                 setListing(res.data)
@@ -87,7 +87,7 @@ export default function CreateListing() {
     useEffect(() => {
         async function getCategories() {
             const response = await axios.get(
-                "http://localhost:8000/api/category",
+                "/api/category",
                 { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
             )
             setCategories(response.data)
@@ -141,14 +141,14 @@ export default function CreateListing() {
         try {
             if (isEdit) {
                 await axios.put(
-                    `http://localhost:8000/api/listing/${id}`,
+                    `/api/listing/${id}`,
                     payload,
                     { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
                 )
                 navigate("/myListing")
             } else {
                 await axios.post(
-                    "http://localhost:8000/api/listing",
+                    "/api/listing",
                     payload,
                     { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
                 )
@@ -230,7 +230,7 @@ export default function CreateListing() {
                             fd.append("image_file", file)
 
                             const res = await axios.post(
-                                "http://localhost:8000/api/listing/uploadImage",
+                                "/api/listing/uploadImage",
                                 fd,
                                 { withCredentials: true, headers: { apiKey: "123456789apikeysecure" } }
                             )
